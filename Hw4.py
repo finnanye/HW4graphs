@@ -77,4 +77,26 @@ details("T-P","Temperature (C)","Pressure (Pa)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 
+# Amonton's Law 0.1m^3
+
+fig = plt.figure(figsize = (10, 10)) 
+
+T01m3 = [22,100]
+V01m3 = [0.1,0.1] # constant Volume
+P01m3 = [1829,8314]
+
+plt.subplot(3,1,1)
+plt.plot(T01m3, V01m3, 'b', label = "V0.1m03 = 1")
+details("T-V","Temperature (C)","Volume (m^3)")
+
+plt.subplot(3,1,2)
+plt.plot(V01m3, P01m3, 'b', label = "V0.1m3 = 1")
+details("V-P","Volume (m^3)","Pressure (Pa)")
+
+plt.subplot(3,1,3)
+plt.plot(T01m3, P01m3, 'b', label = "P0.1m3 = (8.314)T")
+details("T-P","Temperature (C)","Pressure (Pa)")
+
+plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
+
 plt.show()
