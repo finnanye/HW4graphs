@@ -86,11 +86,11 @@ V01m3 = [0.1,0.1] # constant Volume
 P01m3 = [1829,8314]
 
 plt.subplot(3,1,1)
-plt.plot(T01m3, V01m3, 'b', label = "V0.1m03 = 1")
+plt.plot(T01m3, V01m3, 'b', label = "V0.1m03 = 0.1")
 details("T-V","Temperature (C)","Volume (m^3)")
 
 plt.subplot(3,1,2)
-plt.plot(V01m3, P01m3, 'b', label = "V0.1m3 = 1")
+plt.plot(V01m3, P01m3, 'b', label = "V0.1m3 = 0.1")
 details("V-P","Volume (m^3)","Pressure (Pa)")
 
 plt.subplot(3,1,3)
