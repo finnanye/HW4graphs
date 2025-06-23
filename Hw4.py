@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def details(tit,xax,yax):
-    plt.title(tit)
+    plt.title(tit)  
     plt.xlabel(xax)
     plt.ylabel(yax)
     plt.legend()
@@ -103,21 +103,29 @@ plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)'''
 # Boyle's Law 295K
 
 fig = plt.figure(figsize = (10, 10)) 
+# Vk = [24.23,18.64,14.25,12.12] 
+# Pk = [1,1.3,1.7,2]
 
-TK = [295.15,295.15] # constant temp K
-VK = [12.12,24.23] 
-PK = [1,2]
+Pk = [x for x in range(100,200)]
+Tk = [295.15]*len(Pk) # constant temp K
+Vk = [24.23/x for x in Pk]
+
+print (Pk)
+print (Tk)
+print (Vk)
+
+
 
 plt.subplot(3,1,1)
-plt.plot(TK, VK, 'b', label = "T = 295.15K")
+plt.plot(Tk, Vk, 'b', label = "T = 295.15K")
 details("T-V","Temperature (K)","Volume (m^3)")
 
 plt.subplot(3,1,2)
-plt.plot(VK, PK, 'b', label = "V = 24.23/P ")
+plt.plot(Vk, Pk, 'b', label = "V = 24.23/P ")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 plt.subplot(3,1,3)
-plt.plot(TK, PK, 'b', label = "T = 295.15K")
+plt.plot(Tk, Pk, 'b', label = "T = 295.15K")
 details("T-P","Temperature (K)","Pressure (atm)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
@@ -126,20 +134,20 @@ plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 
 fig = plt.figure(figsize = (10, 10)) 
 
-TC = [100,100] # constant temp C
-VC = [0.004103,0.008205] 
-PC = [101325,202650]
+Tc = [100,100] # constant temp C
+Vc = [0.004103,0.008205] 
+Pc = [101325,202650]
 
 plt.subplot(3,1,1)
-plt.plot(TC, VC, 'b', label = "T = 100 C")
+plt.plot(Tc, Vc, 'b', label = "T = 100 C")
 details("T-V","Temperature (C)","Volume (m^3)")
 
 plt.subplot(3,1,2)
-plt.plot(VK, PC, 'b', label = "V = 831.4/P ")
+plt.plot(Vc, Pc, 'b', label = "V = 831.4/P ")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 plt.subplot(3,1,3)
-plt.plot(TC, PC, 'b', label = "T = 100 C")
+plt.plot(Tc, Pc, 'b', label = "T = 100 C")
 details("T-P","Temperature (C)","Pressure (atm)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
