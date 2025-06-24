@@ -103,18 +103,13 @@ plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)'''
 # Boyle's Law 295K
 
 fig = plt.figure(figsize = (10, 10)) 
+
 # Vk = [24.23,18.64,14.25,12.12] 
 # Pk = [1,1.3,1.7,2]
 
 Pk = [x for x in range(100,200)]
 Tk = [295.15]*len(Pk) # constant temp K
 Vk = [24.23/x for x in Pk]
-
-print (Pk)
-print (Tk)
-print (Vk)
-
-
 
 plt.subplot(3,1,1)
 plt.plot(Tk, Vk, 'b', label = "T = 295.15K")
@@ -134,9 +129,15 @@ plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 
 fig = plt.figure(figsize = (10, 10)) 
 
+'''
 Tc = [100,100] # constant temp C
 Vc = [0.004103,0.008205] 
 Pc = [101325,202650]
+'''
+
+Pc = [x for x in range(100,200)]
+Tc = [100]*len(Pc) # constant temp C
+Vc = [831.4/x for x in Pc]
 
 plt.subplot(3,1,1)
 plt.plot(Tc, Vc, 'b', label = "T = 100 C")
