@@ -98,8 +98,8 @@ plt.subplot(3,1,3)
 plt.plot(T01m3, P01m3, 'b', label = "P0.1m3 = (8.314)T")
 details("T-P","Temperature (C)","Pressure (Pa)")
 
-plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)'''
-
+plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
+'''
 # Boyle's Law 295K
 
 fig = plt.figure(figsize = (10, 10)) 
@@ -107,7 +107,7 @@ fig = plt.figure(figsize = (10, 10))
 # Vk = [24.23,18.64,14.25,12.12] 
 # Pk = [1,1.3,1.7,2]
 
-Pk = [x for x in range(100,200)]
+Pk = [x*0.01 for x in range(100,201)]
 Tk = [295.15]*len(Pk) # constant temp K
 Vk = [24.23/x for x in Pk]
 
@@ -129,13 +129,11 @@ plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 
 fig = plt.figure(figsize = (10, 10)) 
 
-'''
-Tc = [100,100] # constant temp C
-Vc = [0.004103,0.008205] 
-Pc = [101325,202650]
-'''
+#Tc = [100,100] # constant temp C
+#Vc = [0.004103,0.008205] 
+#Pc = [101325,202650]
 
-Pc = [x for x in range(100,200)]
+Pc = [x*0.01 for x in range(100,201)]
 Tc = [100]*len(Pc) # constant temp C
 Vc = [831.4/x for x in Pc]
 
@@ -152,5 +150,23 @@ plt.plot(Tc, Pc, 'b', label = "T = 100 C")
 details("T-P","Temperature (C)","Pressure (atm)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
+
+# Adiabetic expansion/compression
+
+fig = plt.figure(figsize = (10, 10)) 
+
+PAd = [x*0.01 for x in range(100,201)]
+VAd = [86.6*x**(-5/7) for x in PAd]
+
+plt.plot(PAd, VAd, 'b', label = "P = 86.6V^(-5/7)")
+details("P-V","Pressure (atm)","Volume (m^3)")
+
+# add isotherm
+fig = plt.figure(figsize = (10, 10)) 
+
+plt.plot(PAd, VAd, 'b', label = "P = 86.6V^(-5/7)")
+plt.plot(Pk, Vk, 'r', label = "P = 24.23V")
+details("P-V","Pressure (atm)","Volume (m^3)")
+
 
 plt.show()
