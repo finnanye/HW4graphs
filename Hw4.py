@@ -110,6 +110,7 @@ details("T-P","Temperature (C)","Pressure (Pa)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 '''
+'''
 # Boyle's Law 295K
 
 fig = plt.figure(figsize = (10, 10)) 
@@ -138,6 +139,7 @@ plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 
 # Boyle's Law 100C
 '''
+'''
 fig = plt.figure(figsize = (10, 10)) 
 
 Tc = np.arange(float(100),float(100)) # constant temp C
@@ -158,7 +160,7 @@ details("T-P","Temperature (C)","Pressure (atm)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 '''
-
+'''
 # Adiabetic expansion/compression
 
 fig = plt.figure(figsize = (10, 10)) 
@@ -175,7 +177,7 @@ fig = plt.figure(figsize = (10, 10))
 plt.plot(PAd, VAd, 'b', label = "P = 86.6V^(-5/7)")
 plt.plot(Pk, Vk, 'r', label = "P = 24.23V")
 details("P-V","Pressure (atm)","Volume (m^3)")
-
+'''
 # Work Cycle
 
 fig = plt.figure(figsize = (10,10))
@@ -187,7 +189,25 @@ Press1 = [189.9/V for V in Vol1] # Calculate initial Pressure
 plt.plot(Vol1,Press1,'r', label = "P1 = 182.9*V1^(-1)")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
+# Process 2 Compress isothermally to half og Volume
+Vol2 = [V/2 for V in Vol1] 
+Press2 = [365.8/V for V in Vol2] # Calculate Pressure 
 
+plt.plot(Vol2,Press2,'g', label = "P2 = 365.8*V1^(-1)")
+details("V-P","Volume (m^3)","Pressure (atm)")
 
+# Process 3 
+Vol3 = [V/2 for V in Vol1] 
+Press3 = [831.4/V for V in Vol3] 
+
+plt.plot(Vol3,Press3,'y', label = "P3 = 831.4*V1^(-1)")
+details("V-P","Volume (m^3)","Pressure (atm)")
+
+# Process 4 
+Vol4 = [V/2 for V in Vol1] 
+Press4 = [12.32/(V**(5/3)) for V in Vol4] 
+
+plt.plot(Vol4,Press4,'y', label = "P4 = 12.32*V^(-5/3))")
+details("V-P","Volume (m^3)","Pressure (atm)")
 
 plt.show()
