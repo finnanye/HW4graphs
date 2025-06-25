@@ -8,7 +8,17 @@ def details(tit,xax,yax):
     plt.legend()
     plt.autoscale()
     plt.grid(True, linestyle =':')
-    
+
+def boyleslaw(P=1, K=True):
+    if K:
+        print ("boyles law, K ",24.23/P,P)
+        return np.divide(24.23,P)
+    else:
+        print ("boyles law, C ",24.23/P)
+        return np.divide(831.4,P)
+
+
+
 # subplot margins: left, right, top, bottom, wspace, hspace
 a,b,c,d,e,f = 0.1,0.9,0.9,0.05,0.1,0.4
 
@@ -104,44 +114,48 @@ plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)'''
 
 fig = plt.figure(figsize = (10, 10)) 
 
-TK = [295.15,295.15] # constant temp K
-VK = [12.12,24.23] 
-PK = [1,2]
+Tk = [295.15,295.15] # constant temp K
+Pk = [1,2]
+Vk = Pk.copy()
+for i in range (len(Pk)):
+    Vk[i] = boyleslaw(Pk[i])
+
 
 plt.subplot(3,1,1)
-plt.plot(TK, VK, 'b', label = "T = 295.15K")
+print(Tk, Vk)
+plt.plot(Tk, Vk, 'b', label = "T = 295.15K")
 details("T-V","Temperature (K)","Volume (m^3)")
 
 plt.subplot(3,1,2)
-plt.plot(VK, PK, 'b', label = "V = 24.23/P ")
+plt.plot(Vk, Pk, 'b', label = "V = 24.23/P ")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 plt.subplot(3,1,3)
-plt.plot(TK, PK, 'b', label = "T = 295.15K")
+plt.plot(Tk, Pk, 'b', label = "T = 295.15K")
 details("T-P","Temperature (K)","Pressure (atm)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 
 # Boyle's Law 100C
-
+'''
 fig = plt.figure(figsize = (10, 10)) 
 
-TC = [100,100] # constant temp C
-VC = [0.004103,0.008205] 
-PC = [101325,202650]
+Tc = np.arange(float(100),float(100)) # constant temp C
+Vc = np.arange(0.004103,0.008205)
+Pc = np.arange(101325,202650)
 
 plt.subplot(3,1,1)
-plt.plot(TC, VC, 'b', label = "T = 100 C")
+plt.plot(Tc, Vc, 'b', label = "T = 100 C")
 details("T-V","Temperature (C)","Volume (m^3)")
 
 plt.subplot(3,1,2)
-plt.plot(VK, PC, 'b', label = "V = 831.4/P ")
+plt.plot(Vc, Pc, 'b', label = "V = 831.4/P ")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 plt.subplot(3,1,3)
-plt.plot(TC, PC, 'b', label = "T = 100 C")
+plt.plot(Tc, Pc, 'b', label = "T = 100 C")
 details("T-P","Temperature (C)","Pressure (atm)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
-
+'''
 plt.show()
