@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def details(tit,xax,yax):
-    plt.title(tit)  
+def details(titl,xax,yax):
+    plt.title(titl)  
     plt.xlabel(xax)
     plt.ylabel(yax)
     plt.legend()
@@ -175,6 +175,19 @@ fig = plt.figure(figsize = (10, 10))
 plt.plot(PAd, VAd, 'b', label = "P = 86.6V^(-5/7)")
 plt.plot(Pk, Vk, 'r', label = "P = 24.23V")
 details("P-V","Pressure (atm)","Volume (m^3)")
+
+# Work Cycle
+
+fig = plt.figure(figsize = (10,10))
+
+# Process 1
+Vol1 = [V*0.000009 for V in range (100,223)] # Obtain 122 Volume values between 0.0009 and 0.002
+Press1 = [189.9/V for V in Vol1] # Calculate initial Pressure
+
+plt.plot(Vol1,Press1,'r', label = "P1 = 182.9*V1^(-1)")
+details("V-P","Volume (m^3)","Pressure (atm)")
+
+
 
 
 plt.show()
