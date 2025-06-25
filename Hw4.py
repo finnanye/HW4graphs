@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def details(tit,xax,yax):
-    plt.title(tit)
+    plt.title(tit)  
     plt.xlabel(xax)
     plt.ylabel(yax)
     plt.legend()
@@ -108,8 +108,8 @@ plt.subplot(3,1,3)
 plt.plot(T01m3, P01m3, 'b', label = "P0.1m3 = (8.314)T")
 details("T-P","Temperature (C)","Pressure (Pa)")
 
-plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)'''
-
+plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
+'''
 # Boyle's Law 295K
 
 fig = plt.figure(figsize = (10, 10)) 
@@ -158,4 +158,23 @@ details("T-P","Temperature (C)","Pressure (atm)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 '''
+
+# Adiabetic expansion/compression
+
+fig = plt.figure(figsize = (10, 10)) 
+
+PAd = [x*0.01 for x in range(100,201)]
+VAd = [86.6*x**(-5/7) for x in PAd]
+
+plt.plot(PAd, VAd, 'b', label = "P = 86.6V^(-5/7)")
+details("P-V","Pressure (atm)","Volume (m^3)")
+
+# add isotherm
+fig = plt.figure(figsize = (10, 10)) 
+
+plt.plot(PAd, VAd, 'b', label = "P = 86.6V^(-5/7)")
+plt.plot(Pk, Vk, 'r', label = "P = 24.23V")
+details("P-V","Pressure (atm)","Volume (m^3)")
+
+
 plt.show()
