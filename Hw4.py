@@ -183,31 +183,39 @@ details("P-V","Pressure (atm)","Volume (m^3)")
 fig = plt.figure(figsize = (10,10))
 
 # Process 1
-Vol1 = [V*0.000009 for V in range (100,223)] # Obtain 122 Volume values between 0.0009 and 0.002
-Press1 = [189.9/V for V in Vol1] # Calculate initial Pressure
+Vol1 = [V*0.000009025 for V in range (100,223)] # Obtain 122 Volume values between 0.0009 and 0.002
+Vol1const = [0.0009025] * len(Vol1)
+hi = 1462000
+low = 321700
+stepsize = (hi-low)//len(Vol1)
+Press1 = [P for P in range (low,hi-stepsize,stepsize)] # Calculate initial Pressure
 
-plt.plot(Vol1,Press1,'r', label = "P1 = 182.9*V1^(-1)")
+plt.plot(Vol1const,Press1,'r', label = "P1 = ")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 # Process 2 Compress isothermally to half og Volume
-Vol2 = [V/2 for V in Vol1] 
+Vol2 = [V for V in Vol1] 
 Press2 = [365.8/V for V in Vol2] # Calculate Pressure 
 
-plt.plot(Vol2,Press2,'g', label = "P2 = 365.8*V1^(-1)")
+plt.plot(Vol2,Press2,'y', label = "P2 = 365.8*V1^(-1)")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 # Process 3 
-Vol3 = [V/2 for V in Vol1] 
-Press3 = [831.4/V for V in Vol3] 
+Vol3 = [V for V in Vol1]
+Vol3const = [0.001805] * len(Vol3)
+hi3 = 460600
+low3 = 202700
+stepsize3 = (hi3-low3)//len(Vol3)
+Press3 = [P for P in range (low3,hi3-stepsize3,stepsize3)] 
 
-plt.plot(Vol3,Press3,'y', label = "P3 = 831.4*V1^(-1)")
+plt.plot(Vol3const,Press3,'g', label = "P3 = ")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 # Process 4 
-Vol4 = [V/2 for V in Vol1] 
+Vol4 = [V for V in Vol1] 
 Press4 = [12.32/(V**(5/3)) for V in Vol4] 
 
-plt.plot(Vol4,Press4,'y', label = "P4 = 12.32*V^(-5/3))")
+plt.plot(Vol4,Press4,'b', label = "P4 = 12.32*V^(-5/3))")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 plt.show()
