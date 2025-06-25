@@ -22,7 +22,6 @@ def boyleslaw(P=1, K=True):
 # subplot margins: left, right, top, bottom, wspace, hspace
 a,b,c,d,e,f = 0.1,0.9,0.9,0.05,0.1,0.4
 
-'''
 # Charles Law 2atm
 fig = plt.figure(figsize = (10, 10)) 
 
@@ -109,8 +108,7 @@ plt.plot(T01m3, P01m3, 'b', label = "P0.1m3 = (8.314)T")
 details("T-P","Temperature (C)","Pressure (Pa)")
 
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
-'''
-'''
+
 # Boyle's Law 295K
 
 fig = plt.figure(figsize = (10, 10)) 
@@ -138,29 +136,24 @@ details("T-P","Temperature (K)","Pressure (atm)")
 plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
 
 # Boyle's Law 100C
-'''
-'''
 fig = plt.figure(figsize = (10, 10)) 
 
-Tc = np.arange(float(100),float(100)) # constant temp C
-Vc = np.arange(0.004103,0.008205)
-Pc = np.arange(101325,202650)
+TC = [100,100] # constant temp C
+VC = [0.004103,0.008205] 
+PC = [101325,202650]
 
 plt.subplot(3,1,1)
-plt.plot(Tc, Vc, 'b', label = "T = 100 C")
+plt.plot(TC, VC, 'b', label = "T = 100 C")
 details("T-V","Temperature (C)","Volume (m^3)")
 
 plt.subplot(3,1,2)
-plt.plot(Vc, Pc, 'b', label = "V = 831.4/P ")
+plt.plot(VC, PC, 'b', label = "V = 831.4/P ")
 details("V-P","Volume (m^3)","Pressure (atm)")
 
 plt.subplot(3,1,3)
-plt.plot(Tc, Pc, 'b', label = "T = 100 C")
+plt.plot(TC, PC, 'b', label = "T = 100 C")
 details("T-P","Temperature (C)","Pressure (atm)")
 
-plt.subplots_adjust(left=a, right=b,top=c, bottom=d, wspace=e, hspace=f)
-'''
-'''
 # Adiabetic expansion/compression
 
 fig = plt.figure(figsize = (10, 10)) 
@@ -177,10 +170,11 @@ fig = plt.figure(figsize = (10, 10))
 plt.plot(PAd, VAd, 'b', label = "P = 86.6V^(-5/7)")
 plt.plot(Pk, Vk, 'r', label = "P = 24.23V")
 details("P-V","Pressure (atm)","Volume (m^3)")
-'''
+
 # Work Cycle
 
 fig = plt.figure(figsize = (10,10))
+
 
 # Process 1
 Vol1 = [V*0.000009025 for V in range (100,201)] # Obtain 100 Volume values between 0.0009 and 0.002
